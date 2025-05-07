@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Hiperconectada V2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container-garagem">
+        <header class="header-garagem">
+            <h1><i class="fas fa-warehouse"></i> Minha Garagem Hiperconectada</h1>
+        </header>
+
+        <main class="conteudo-principal">
+            <section id="controle-porta-luzes" class="card-secao">
+                <h2><i class="fas fa-cogs"></i> Painel de Controle</h2>
+                <div class="controle-item">
+                    <h3><i class="fas fa-door-open"></i> Porta da Garagem</h3>
+                    <p>Status: <span id="status-porta" class="status status-fechada">Fechada</span></p>
+                    <button id="btn-alternar-porta" class="btn btn-principal">Abrir Porta</button>
+                </div>
+                <div class="controle-item">
+                    <h3><i class="fas fa-lightbulb"></i> Luz Interna</h3>
+                    <p>Status: <span id="status-luz" class="status status-desligada">Desligada</span></p>
+                    <button id="btn-alternar-luz" class="btn btn-secundario">Ligar Luz</button>
+                </div>
+            </section>
+
+            <section id="previsao-tempo-secao" class="card-secao">
+                <h2><i class="fas fa-cloud-sun-rain"></i> Previsão do Tempo Detalhada</h2>
+                <div class="input-group">
+                    <input type="text" id="cidade-input" placeholder="Digite o nome da cidade" aria-label="Nome da cidade para previsão do tempo">
+                    <button id="verificar-clima-btn" class="btn btn-principal">
+                        <i class="fas fa-search-location"></i> Ver Previsão
+                    </button>
+                </div>
+                <div id="feedback-usuario" class="feedback" aria-live="polite"></div>
+                <div id="previsao-tempo-resultado">
+                    <!-- Resultados da previsão aqui -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-garagem">
+            <p>© 2024 Garagem Hiperconectada.</p>
+            <p class="alerta-api-key">
+                <strong>Atenção:</strong> Chave da API no frontend para fins didáticos.
+            </p>
+        </footer>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

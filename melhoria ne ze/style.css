@@ -1,0 +1,297 @@
+/* style.css */
+:root {
+    --cor-primaria: #007bff;         /* Azul vibrante */
+    --cor-primaria-hover: #0056b3;   /* Azul mais escuro para hover */
+    --cor-secundaria: #6c757d;       /* Cinza para botões secundários */
+    --cor-secundaria-hover: #5a6268;
+    --cor-fundo-body: #f4f7f6;       /* Cinza bem claro para o fundo */
+    --cor-fundo-container: #ffffff;  /* Branco para os containers principais */
+    --cor-fundo-card: #fdfdfd;       /* Quase branco para os cards internos */
+    --cor-texto-principal: #343a40;  /* Cinza escuro para texto */
+    --cor-texto-secundario: #6c757d; /* Cinza mais claro para subtextos */
+    --cor-borda: #dee2e6;            /* Cinza claro para bordas */
+    --cor-sucesso: #28a745;          /* Verde para status positivo */
+    --cor-erro: #dc3545;            /* Vermelho para status negativo/erro */
+    --cor-alerta: #ffc107;           /* Amarelo para alertas */
+
+    --sombra-card: 0 2px 5px rgba(0, 0, 0, 0.08);
+    --sombra-card-hover: 0 4px 10px rgba(0, 0, 0, 0.12);
+    --border-radius-padrao: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo-body);
+    color: var(--cor-texto-principal);
+    margin: 0;
+    padding: 0; /* Removido padding para o container cuidar disso */
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 20px; /* Espaço no topo */
+    padding-bottom: 20px; /* Espaço embaixo */
+}
+
+.container-garagem {
+    background-color: var(--cor-fundo-container);
+    width: 90%;
+    max-width: 960px; /* Mais largo para acomodar mais seções */
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: var(--border-radius-padrao);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header-garagem {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--cor-primaria);
+}
+
+.header-garagem h1 {
+    color: var(--cor-primaria);
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.header-garagem h1 i {
+    margin-right: 10px;
+}
+
+.conteudo-principal {
+    display: grid;
+    grid-template-columns: 1fr; /* Começa com uma coluna */
+    gap: 25px;
+}
+
+/* Em telas maiores, duas colunas */
+@media (min-width: 768px) {
+    .conteudo-principal {
+        grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+    }
+    /* A seção de previsão pode ocupar as duas colunas se for a única ou se desejado */
+    #previsao-tempo-secao.full-width {
+        grid-column: 1 / -1;
+    }
+}
+
+
+.card-secao {
+    background-color: var(--cor-fundo-card);
+    padding: 20px;
+    border-radius: var(--border-radius-padrao);
+    border: 1px solid var(--cor-borda);
+    box-shadow: var(--sombra-card);
+}
+
+.card-secao h2 {
+    color: var(--cor-texto-principal);
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 10px;
+}
+.card-secao h2 i {
+    margin-right: 8px;
+    color: var(--cor-primaria);
+}
+
+.controle-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--cor-borda);
+}
+.controle-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.controle-item h3 {
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--cor-texto-secundario);
+}
+.controle-item h3 i {
+    margin-right: 6px;
+}
+
+.status {
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: white;
+}
+.status-aberta, .status-ligada {
+    background-color: var(--cor-sucesso);
+}
+.status-fechada, .status-desligada {
+    background-color: var(--cor-erro);
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+.btn i {
+    margin-right: 6px;
+}
+
+.btn-principal {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+.btn-principal:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+.btn-secundario {
+    background-color: var(--cor-secundaria);
+    color: white;
+}
+.btn-secundario:hover {
+    background-color: var(--cor-secundaria-hover);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#cidade-input {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    font-size: 1em;
+}
+#cidade-input:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.feedback {
+    text-align: center;
+    margin-bottom: 15px;
+    min-height: 1.5em;
+    font-style: italic;
+}
+.error-message {
+    color: var(--cor-erro);
+    font-weight: bold;
+}
+.success-message {
+    color: var(--cor-sucesso);
+}
+
+/* Estilos da Previsão do Tempo (reutilizados e adaptados) */
+#previsao-tempo-resultado h3 {
+    margin-top: 0; /* Já tem h2 na seção */
+    margin-bottom: 15px;
+    color: var(--cor-texto-principal);
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 8px;
+    font-size: 1.3em;
+    text-align: left;
+}
+
+#previsao-tempo-resultado {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
+}
+
+.previsao-dia {
+    background-color: #f8f9fa; /* Tom levemente diferente para os cards internos */
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius-padrao);
+    padding: 15px;
+    box-shadow: var(--sombra-card);
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.previsao-dia:hover {
+    box-shadow: var(--sombra-card-hover);
+    transform: translateY(-2px);
+}
+
+.previsao-dia-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #ced4da;
+}
+.previsao-dia-header span {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: var(--cor-primaria-hover);
+}
+.previsao-dia-header img {
+    width: 45px;
+    height: 45px;
+    background-color: #e7f3ff;
+    border-radius: 50%;
+    padding: 2px;
+}
+.previsao-dia p {
+    margin: 6px 0;
+    font-size: 0.9em;
+    color: var(--cor-texto-secundario);
+}
+.previsao-dia p strong {
+    color: var(--cor-texto-principal);
+}
+
+.footer-garagem {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--cor-borda);
+    font-size: 0.9em;
+    color: var(--cor-texto-secundario);
+}
+.alerta-api-key strong {
+    color: var(--cor-alerta);
+    font-weight: bold;
+}
+
+/* Ajustes de responsividade adicionais */
+@media (max-width: 576px) {
+    .container-garagem {
+        padding: 15px;
+    }
+    .header-garagem h1 {
+        font-size: 2em;
+    }
+    .card-secao h2 {
+        font-size: 1.4em;
+    }
+    .input-group {
+        flex-direction: column;
+    }
+    #cidade-input {
+        margin-bottom: 10px;
+        width: calc(100% - 24px); /* Ajuste para padding */
+    }
+    #verificar-clima-btn {
+        width: 100%;
+    }
+}
